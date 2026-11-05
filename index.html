@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Binance</title>
+    <!-- 引入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        binance: '#FCD535',
+                        binanceGreen: '#0ECB81',
+                        binanceRed: '#F6465D',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- 引入 FontAwesome 图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-[#F5F5F5] text-gray-900 font-sans antialiased max-w-md mx-auto min-h-screen flex flex-col justify-between select-none pb-16">
+
+    <!-- 顶栏 -->
+    <header class="flex justify-between items-center px-4 py-3 sticky top-0 bg-white z-50">
+        <div class="flex items-center space-x-3">
+            <div class="w-8 h-8 rounded-full bg-gray-200 overflow-hidden flex items-center justify-center text-gray-700">
+                <i class="fa-solid fa-user text-sm"></i>
+            </div>
+            <!-- 顶部交易平台/钱包切换 Tab -->
+            <div class="bg-gray-100 p-0.5 rounded-full flex text-xs font-medium">
+                <span class="bg-white px-3 py-1 rounded-full shadow-sm">交易平台</span>
+                <span class="px-3 py-1 text-gray-500">钱包</span>
+            </div>
+        </div>
+        <div class="flex items-center space-x-4 text-lg text-gray-700">
+            <i class="fa-solid fa-headset text-sm"></i>
+            <i class="fa-regular fa-bell text-sm"></i>
+            <div class="relative">
+                <i class="fa-solid fa-qrcode text-sm"></i>
+                <span class="absolute -top-1 -right-2 bg-red-500 text-white text-[9px] px-1 rounded-full">99+</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- 搜索栏 -->
+    <div class="px-4 py-2 bg-white">
+        <div class="bg-gray-100 rounded-full px-4 py-2 flex items-center justify-between text-sm text-gray-500">
+            <div class="flex items-center space-x-2">
+                <i class="fa-solid fa-magnifying-glass text-gray-400"></i>
+                <span class="flex items-center space-x-1">
+                    <span class="text-orange-500 font-bold text-xs bg-orange-100 px-1.5 py-0.5 rounded">🔥 TRUMP</span>
+                    <span class="text-xs text-gray-600">当前热搜</span>
+                </span>
+            </div>
+            <i class="fa-solid fa-expand text-gray-400"></i>
+        </div>
+    </div>
+
+    <!-- 主体内容滚动区 -->
+    <main class="px-4 flex-1">
+        
+        <!-- 资产总览卡片 -->
+        <div class="bg-white rounded-2xl p-4 mt-2 shadow-sm">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-1 text-xs text-gray-500">
+                    <span>预估总资产(USD)</span>
+                    <i class="fa-solid fa-chevron-up text-[10px]"></i>
+                </div>
+                <button class="bg-binance hover:bg-yellow-400 text-gray-900 text-xs font-bold px-4 py-1.5 rounded-full shadow-sm">
+                    添加资金
+                </button>
+            </div>
+
+            <!-- 余额显示区 -->
+            <div class="mt-1 flex items-baseline space-x-2">
+                <span id="balanceAmount" class="text-3xl font-extrabold tracking-tight">$118,524.69</span>
+            </div>
+
+            <!-- 今日盈亏 -->
+            <div class="mt-2 text-xs text-gray-400 flex items-center space-x-1">
+                <span>今日盈亏</span>
+                <span class="text-gray-500">$0.00 (0.00%)</span>
+                <i class="fa-solid fa-chevron-down text-[10px]"></i>
+            </div>
+        </div>
+
+        <!-- 开始首笔交易Banner -->
+        <div class="bg-white rounded-2xl p-4 mt-4 shadow-sm text-center">
+            <div class="text-left font-bold text-base mb-3">开始首笔交易</div>
+            <button class="w-full bg-binance hover:bg-yellow-400 text-gray-900 font-bold py-3 rounded-lg text-sm shadow-sm">
+                交易
+            </button>
+        </div>
+
+        <!-- 现货交易详解 -->
+        <div class="bg-white rounded-2xl p-3.5 mt-4 shadow-sm flex justify-between items-center">
+            <div class="flex items-center space-x-2.5">
+                <div class="text-gray-800 text-lg">
+                    <i class="fa-solid fa-book-open"></i>
+                </div>
+                <div class="text-xs font-medium text-gray-800">
+                    现货交易详解: 新手指南
+                </div>
+            </div>
+            <button class="bg-gray-100 text-gray-600 text-xs px-3 py-1 rounded-full font-medium">
+                前往
+            </button>
+        </div>
+
+        <!-- 币安卡与 BNB 卡片双列布局 -->
+        <div class="grid grid-cols-2 gap-3 mt-4">
+            <!-- 币安卡 -->
+            <div class="bg-white rounded-2xl p-3.5 shadow-sm flex flex-col justify-between">
+                <div>
+                    <div class="text-xs font-bold text-gray-800 mb-2">币安卡</div>
+                    <div class="bg-black rounded-lg p-2 text-white text-[10px] flex items-center space-x-1.5 mb-2">
+                        <i class="fa-solid fa-cube text-binance"></i>
+                        <span class="font-bold tracking-wider">BINANCE</span>
+                    </div>
+                    <div class="text-[11px] text-gray-500 leading-tight">
+                        使用加密资产，赚取返现奖励
+                    </div>
+                </div>
+                <div class="mt-3 text-center">
+                    <button class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 text-xs font-medium py-1.5 rounded-lg">
+                        立即申请
+                    </button>
+                </div>
+            </div>
+
+            <!-- BNB 卡片 -->
+            <div class="bg-white rounded-2xl p-3.5 shadow-sm flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center space-x-1 mb-2">
+                        <div class="w-4 h-4 rounded-full bg-binance flex items-center justify-center text-[9px] text-black font-bold">
+                            <i class="fa-solid fa-cube"></i>
+                        </div>
+                        <span class="text-xs font-bold text-gray-800">BNB</span>
+                    </div>
+                    <div class="font-bold text-sm tracking-tight text-gray-900 mt-2">713.55</div>
+                    <div class="text-xs text-binanceGreen mt-0.5">▲ 1.94%</div>
+                </div>
+                <!-- 底部简易趋势线图表 -->
+                <div class="mt-4">
+                    <svg class="w-full h-10 text-binanceGreen" viewBox="0 0 100 30" fill="none">
+                        <path d="M0 25 Q 25 15, 50 20 T 100 5" stroke="currentColor" stroke-width="2" fill="none"/>
+                        <path d="M0 25 Q 25 15, 50 20 T 100 5 V 30 H 0 Z" fill="currentColor" fill-opacity="0.1"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- 次级横向导航标签 -->
+        <div class="mt-5 flex space-x-6 text-xs text-gray-500 overflow-x-auto pb-2 scrollbar-none border-b border-gray-100">
+            <span class="text-gray-900 font-bold pb-1 border-b-2 border-gray-900">发现</span>
+            <span class="pb-1">关注</span>
+            <span class="pb-1">股票</span>
+            <span class="pb-1">排行榜</span>
+            <span class="pb-1">公告</span>
+            <span class="pb-1">直播</span>
+            <span class="pb-1">新闻</span>
+            <span class="pb-1">币安学院</span>
+            <i class="fa-solid fa-chevron-up text-[10px] text-gray-400 self-center"></i>
+        </div>
+
+    </main>
+
+    <!-- 底部导航栏 -->
+    <nav class="fixed bottom-0 left-0 right-0 max-w-md mx-auto bg-white border-t border-gray-200 flex justify-around py-2 z-50 text-[10px] text-gray-500">
+        <div class="flex flex-col items-center text-gray-900 font-medium">
+            <i class="fa-solid fa-house text-lg"></i>
+            <span class="mt-0.5">首页</span>
+        </div>
+        <div class="flex flex-col items-center hover:text-gray-900 cursor-pointer">
+            <i class="fa-solid fa-chart-line text-lg"></i>
+            <span class="mt-0.5">行情</span>
+        </div>
+        <div class="flex flex-col items-center hover:text-gray-900 cursor-pointer">
+            <i class="fa-solid fa-
